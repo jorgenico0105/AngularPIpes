@@ -1,0 +1,25 @@
+<p-panel header="Pipes Basicos" class="p-2 ">                                                                                             
+    <p>Pipes incluidos en Angular</p>
+</p-panel>
+<div>
+    <p-button class="but" (click)="toggleElement()" [label]="showElement ? 'Ocultar Pipes' : 'Mostrar Pipes'"></p-button>
+</div>
+    
+<div [@slideInOut]="showElement ? 'in' : 'out'" class="grid mt-2">         
+                                                                                      
+    <div class="col-12 md:col-4">
+        <p-card header="ventas netas del año">
+            {{totalsells  | number:"1.2-2" }}
+        </p-card>
+    </div>
+    <div class="col-12 md:col-4">
+        <p-card header="ventas netas del año">
+            {{totalsells+15223 | currency }}
+        </p-card>
+    </div>
+    <div class="col-12 md:col-4">
+        <p-card header="ventas netas del año">
+            {{percent | percent:"1.2-2" }}
+        </p-card>
+    </div>
+ </div>   

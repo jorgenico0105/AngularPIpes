@@ -1,0 +1,70 @@
+<p-panel header="Pipes No tan comunes" class="p-2 ">                                                                                             
+    <p>Pipes incluidpos en angular no tan comunes</p>
+</p-panel>
+<div>
+    <p-button class="but" (click)="toggleElement()" [label]="showElement ? 'Ocultar Pipes' : 'Mostrar Pipes'"></p-button>
+</div>
+    
+<div [@slideInOut]="showElement ? 'in' : 'out'" class="grid mt-2">         
+                                                                                      
+    <div class="col-12 md:col-6">
+        <p-card header="Pipes no communs">
+            <p-fieldset legend="i18nSelect Pipe" [toggleable]="true">
+                Saludos  {{name}}, es un placer {{gender | i18nSelect:initationmap}}
+                a nuestro evento
+                <div class="mt-2">
+                    <p-button (click)="changeClient()" label="Cambiar persona">
+                    </p-button>
+                    
+                </div>
+            </p-fieldset>
+          
+        </p-card>
+    </div> 
+    <div class="col-12 md:col-6">
+        <p-card header="Pipes no communs">
+            <p-fieldset legend="i18nPlural Pipe" [toggleable]="true">
+                 {{clients.length | i18nPlural:clinentsMap}}  {{clients.length }}
+                <div class="mt-2">
+                    <p-button *ngIf="clients.length > 0"  (click)="deleteClient()" label="Eliminar clientes"></p-button>    
+                    <p *ngIf="clients.length===0">No hay clientes</p>
+                </div>
+            </p-fieldset>
+        </p-card>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-card header="Pipes no communs">
+            <p-fieldset legend="Slice pipe" [toggleable]="true">
+                <b>Original</b>
+                <pre>{{clients}}</pre>
+                <b>Slice</b>
+                <p>{{clients | slice:0:3}}</p>
+            </p-fieldset>
+        </p-card>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-card header="Pipes no communs">
+            <p-fieldset legend="JSON Pipe" [toggleable]="true">
+                 {{person|json}}
+            </p-fieldset>
+        </p-card>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-card header="Pipes no communs">
+            <p-fieldset legend="keyValue Pipe" [toggleable]="true">
+                <ul>
+                    <li *ngFor="let item of person | keyvalue">
+                        <b>{{item.key | titlecase }} : </b>
+                        {{item.value}}
+                    </li>
+                </ul>
+            </p-fieldset>
+        </p-card>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-card header="Pipes no communs">
+            <p-fieldset legend="Async Pipe" [toggleable]="true">
+                {{myObservable  | async}}
+            </p-fieldset>
+        </p-card>
+    </div>

@@ -1,0 +1,62 @@
+<p-panel header="Pipes Basicos" class="p-2 ">                                                                                             
+    <p>Pipes incluidos en Angular</p>
+</p-panel>
+<div>
+    <p-button class="but" (click)="toggleElement()" [label]="showElement ? 'Ocultar Pipes' : 'Mostrar Pipes'"></p-button>
+</div>
+    
+<div [@slideInOut]="showElement ? 'in' : 'out'" class="grid mt-2">         
+                                                                                      
+    <div class="col-12 md:col-4">
+        <p-card header="uppercase">
+            {{nameLower | uppercase}}
+        </p-card>
+    </div>
+    <div class="col-12 md:col-4">
+        <p-card header="lowercase">
+            {{nameUpper | lowercase}}
+        </p-card>
+    </div>
+    <div class="col-12 md:col-4">
+        <p-card header="titlecase">
+            {{fullName | titlecase}}
+        </p-card>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-card header="titlecase">
+            <ol >
+                <li class="mt-2">Fecha:</li>
+                <li class="mt-2">Fecha | date</li>
+                <li class="mt-2">Fecha | date:"short"</li>
+                <li class="mt-2">Fecha | date:"long" </li>
+                <li class="mt-2">Fecha | date:"MMM" </li>
+                <li class="mt-2">Fecha | date:"MMM dd,yyyy" </li>
+                
+            </ol>
+            <hr>
+            <ol>
+                <li>Date | date:"long":"GMT-6"</li>
+                <li>Date | date:"long":"GMT-4"</li>
+                <li>Date | date:"long":"":"es-HN"</li>
+            </ol>
+        </p-card>
+    </div>
+    <div class="col-12 md:col-6">
+        <p-card header="titlecase">
+            <ul>
+                <li class="mt-2">{{cusomDate}}</li>
+                <li class="mt-2">{{cusomDate | date}}</li>
+                <li class="mt-2">{{cusomDate | date:"short"}}</li>
+                <li class="mt-2">{{cusomDate | date:"long"}}</li>
+                <li class="mt-2">{{cusomDate | date:"MMM"}}</li>
+                <li class="mt-2">{{cusomDate | date:"MMM dd,yyyy"}}</li>
+            </ul>
+            <hr>
+            <ul>
+                <li class="mt-2">{{cusomDate | date:"long":"GMT-6"}}</li>
+                <li class="mt-2">{{cusomDate | date:"long":"GMT-4"}}</li>
+                <li class="mt-2">{{cusomDate | date:"long":"":"es-EC"}}</li>
+            </ul>
+        </p-card>
+    </div>
+</div>
